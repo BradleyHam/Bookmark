@@ -1,0 +1,56 @@
+@import '../../Style/_variables.scss';
+.Header{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $mobileGutter;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+.dropdownBackground{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: $VeryDarkBlue;
+    opacity: .9;
+}
+.dropdownNav{
+   z-index: 1000;
+   position: relative;
+   color: white; 
+   height: calc(100vh - 80px);
+   nav{
+      height: 100%;
+      ul{
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: stretch;
+          flex-flow: column;
+          margin: 0 $mobileGutter;
+          padding: 0;
+          margin-top: 80px;
+          &::before{
+              background: red;
+          }
+      }
+      li{
+          padding: 20px 0;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          border-top: 1px solid rgba(255, 255, 255, 0.301);
+          text-align:center;
+          cursor: pointer;
+          transform-origin: 50% 100%;
+      }
+      li:last-of-type{
+          border-bottom:  1px solid rgba(255, 255, 255, 0.301);
+      }
+  }
+}
