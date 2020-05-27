@@ -2,19 +2,24 @@ import React, { useState } from 'react'
 import CompanyLogo from './CompanyLogo'
 import './Header.scss'
 import { SpringReverse } from 'react-burgers'
-import DropdownNav from './DropdownNav'
+import Nav from './Nav'
+import DesktopNav from './DesktopNav'
 
 const Header = () => {
-    const [headerActive, setHeaderActive] = useState(true);
+    const [headerActive, setHeaderActive] = useState(false);
 
     return (
         <div>
-            <div className='Header'>
+            <div className={`Header ${headerActive && 'Header__active'}`}>
                 <CompanyLogo dropdownOpen={headerActive} />
-                <SpringReverse lineHeight={3} width={30} onClick={() => { setHeaderActive(!headerActive) }} active={headerActive}
-                    color={headerActive ? '#ffffff' : "#222"} />
+                <div className="hamburger">
+                    <SpringReverse lineHeight={3} width={30} onClick={() => { setHeaderActive(!headerActive) }} active={headerActive}
+                        color={headerActive ? '#ffffff' : "#222"} />
+                </div>
+                <DesktopNav />
             </div>
-            {headerActive && <DropdownNav headerActive={headerActive} />}
+
+            {headerActive && <Nav headerActive={headerActive} />}
         </div>
     );
 }

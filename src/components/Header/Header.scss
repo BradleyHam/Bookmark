@@ -1,4 +1,5 @@
 @import '../../Style/_variables.scss';
+@import '../../Style/mixins.scss';
 .Header{
     height: 80px;
     display: flex;
@@ -7,24 +8,37 @@
     padding: 0 $mobileGutter;
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     right: 0;
+    background: white;
+   @media(min-width: 760px){
+    padding: 0 $desktopGutter;
+   }
 }
+.Header__active{
+    background: $SoftBlue;
+    opacity: .9;
+}
+
 .dropdownBackground{
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    background: $VeryDarkBlue;
-    opacity: .9;
+    background: $SoftBlue;
+    opacity: .98;
+    z-index: 2;
+
 }
 .dropdownNav{
    z-index: 1000;
    position: relative;
    color: white; 
    height: calc(100vh - 80px);
+   
+
    nav{
       height: 100%;
       ul{
@@ -36,9 +50,7 @@
           margin: 0 $mobileGutter;
           padding: 0;
           margin-top: 80px;
-          &::before{
-              background: red;
-          }
+       
       }
       li{
           padding: 20px 0;
@@ -48,9 +60,61 @@
           text-align:center;
           cursor: pointer;
           transform-origin: 50% 100%;
+          &:hover{
+              background: lighten($SoftBlue, 5%)
+          }
       }
       li:last-of-type{
           border-bottom:  1px solid rgba(255, 255, 255, 0.301);
       }
   }
+}
+
+.hamburger,.dropdownNav,.dropdownBackground{
+    @media(min-width: 760px){
+        display: none;
+    }
+}
+
+.desktopNav{
+  
+    @media(max-width: 760px){
+        display: none;
+    }
+    ul{
+        display: flex;
+        align-items: center;
+        li{
+            padding: 0 10px;
+            cursor: pointer; 
+            &:hover{
+                color: $SoftRed;
+            }
+        }
+    }
+}
+
+.whiteButton{
+    background: none;
+    color: white;
+    @include button;
+    border: 2px solid white;
+    padding: 15px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.8px;
+    &:hover{
+        background: white;
+        color: $VeryDarkBlue;
+    }
+}
+.redButton{
+    background: $SoftRed;
+    color: white;
+    @include button;
+    border: 2px solid $SoftRed;
+    &:hover{
+        background: none;
+        color: $SoftRed;
+    }
 }

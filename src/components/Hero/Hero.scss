@@ -1,0 +1,89 @@
+@import '../../Style/_variables.scss';
+@import '../../Style/mixins.scss';
+.Hero{
+    padding: 80px desktopGutter 0 desktopGutter;
+    display: flex;
+
+    min-height: calc(100vh - 80px);
+    align-items: center;
+    overflow: hidden;
+   
+    
+    @media(max-width: 760px){
+        flex-flow: column;
+        text-align: center;
+        padding: $mobileGutter;
+        margin-top: 80px;
+        
+    }
+
+    &__imgSide{
+        position: relative;
+        transform: translateX(30%);
+        flex: 1;
+        @media(max-width: 760px){
+            transform: translateX(0);
+          }
+       
+        &::after{
+            position: absolute;
+            top: 20%;;
+            right: -150%;
+            left: 30%;
+            bottom: 0;
+            content: '';
+            display: block;
+            background: $SoftBlue;
+            z-index: -1;
+            border-radius: 200px;
+        }
+        
+        img{
+        
+           
+        }
+    }
+
+    &__textSide{
+      flex: 1;
+      min-width: 340px;
+      @media(max-width: 760px){
+        padding: 40px 0;
+        order: 2;
+      }
+    }
+    // buttons 
+
+    &__buttonRow{
+        display: flex;
+        @media(max-width: 760px){
+          justify-content: center;
+        }
+
+    }
+    &__blueButton,  &__greyButton {
+        @include button;
+        color: white;
+        font-size: 15px;
+        padding: 10px 20px;
+        margin-right: 5px;
+        &:hover{
+            background: white;
+        }
+    
+    }
+    &__greyButton{
+        background: $SoftRed;
+        border: 2px solid $SoftRed;
+        &:hover{
+            color: $SoftRed;
+        }
+    }
+    &__blueButton{
+        background: $SoftBlue;
+        border: 2px solid $SoftBlue;
+        &:hover{
+            color: $SoftBlue;
+        }
+    }
+}
