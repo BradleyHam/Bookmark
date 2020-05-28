@@ -1,0 +1,42 @@
+@import '../../Style/_variables.scss';
+.Extensions{
+    padding: 0 $mobileGutter;
+    text-align: center;
+} 
+
+/// card //////
+
+$cardShadow: 0 5px 10px rgba(0,0,0,.1);
+
+.Card{
+    background: white; 
+    box-shadow: $cardShadow;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-radius: 10px;
+
+    @media(min-width: 760px){
+        margin: 0 10px;
+    }
+    button{
+        margin: 30px 10px 20px 10px;
+        padding: 10px 15px;
+        background: $SoftBlue;
+        color: white; 
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer; 
+    }
+    .dots{
+        width: 100%;
+    }
+}
+
+.cardRow{
+    @media(min-width: 760px){
+        display: flex;
+       margin: 40px 0;
+       height: 450px;
+    }
+}
