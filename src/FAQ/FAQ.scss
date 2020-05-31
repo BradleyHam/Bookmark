@@ -1,0 +1,28 @@
+.faq{
+    text-align: center;
+    padding: 60px 30px;
+}
+
+.Accordian{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.288);
+
+    button{
+        width: 100%;
+        padding: 20px;
+        cursor: pointer;
+        border: none ;
+        text-align: left;
+        font-weight: bold;
+        opacity: .8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        padding-bottom: 10px;
+        outline: none;
+
+    }
+    svg{
+        height: 20px;
+    }
+}
